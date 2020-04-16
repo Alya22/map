@@ -6,46 +6,52 @@
 
 // Товари мають повторюватись
 
-var map_a = new Map();
-var map_b = new Map();
-var map_c = new Map();
-var arrfirm = [];
-var arrgoods = [];
-var arrprice = [];
-var arrtime = [];
+var map1 = new Map();
+var map2 = new Map();
+var map3 = new Map();
+
+
+var arrFirm = [];
+var arrGoods = [];
+var arrPrice = [];
+var arrTime = [];
+
+
 var obj_1 = new Object();
 var obj_2 = new Object();
 var obj_3 = new Object();
 var obj_4 = new Object();
-map_a.set('f1', 'tovar');
-map_a.set('f2', 'tovar2');
-map_a.set('f3', 'tovar');
-map_a.set('f4', 'tovar2');
 
-map_b.set(11, 'f1');
-map_b.set(111, 'f2');
-map_b.set(1111, 'f3');
-map_b.set(1, 'f4');
 
-map_c.set(2, 'f1');
-map_c.set(22222, 'f2');
-map_c.set(222, 'f3');
-map_c.set(22, 'f4');
+map1.set('Valve', 'dota2');
+map1.set('Bugbear', 'Unbounded');
+map1.set('Wargaming', 'word_of_tanks');
+map1.set('Hidden_Path', 'csgo');
 
-map_a.forEach((value, key) => {
-  arrgoods.push(value);
-  arrfirm.push(key);
+map2.set(000, 'Valve');
+map2.set(450, 'Bugbear');
+map2.set(300, 'Wargaming');
+map2.set(200, 'Hidden_Path');
+
+map3.set(2, 'Valve');
+map3.set(4, 'Bugbear');
+map3.set(9, 'Wargaming');
+map3.set(3, 'Hidden_Path');
+
+map1.forEach((value, key) => {
+  arrGoods.push(value);
+  arrFirm.push(key);
 });
 
-map_b.forEach((value,key) => {
-  arrprice.push(key)
+map2.forEach((value,key) => {
+  arrPrice.push(key)
 });
 
-map_c.forEach((value,key) => {
-  arrtime.push(key)
+map3.forEach((value,key) => {
+  arrTime.push(key)
 });
 
-function maxElement(myArray) {
+function max(myArray) {
   var index = 0;
   var min = myArray[0];
   var max = min;
@@ -57,7 +63,7 @@ function maxElement(myArray) {
   }
   return index;
 }
-function minElement(myArray) {
+function min(myArray) {
   var index = 0;
   var min = myArray[0];
   for (i = 0; i < myArray.length; i++) {
@@ -68,15 +74,16 @@ function minElement(myArray) {
   }
   return index;
 }
-var min1 = minElement(arrprice);
-var min2 = minElement(arrtime);
-var max1 = maxElement(arrprice);
-var max2 = maxElement(arrtime);
+var min1 = min(arrPrice);
+var min2 = min(arrTime);
+var max1 = max(arrPrice);
+var max2 = max(arrTime);
 
-obj_1[arrgoods[min1]] = `${arrprice[min1]}, ${arrfirm[min1]}, ${arrtime[min1]}`;
-obj_2[arrgoods[min2]] = `${arrprice[min2]}, ${arrfirm[min2]}, ${arrtime[min2]}`;
-obj_3[arrgoods[max1]] = `${arrprice[max1]} ${arrfirm[max1]} ${arrtime[max1]}`;
-obj_4[arrgoods[max2]] = `${arrprice[max2]} ${arrfirm[max2]} ${arrtime[max2]}`;
+obj_1[arrGoods[min1]] = `Цена:${arrPrice[min1]}, Производитель: ${arrFirm[min1]}, Время доставки: ${arrTime[min1]}`;
+obj_2[arrGoods[min2]] = `Цена:${arrPrice[min2]}, Производитель: ${arrFirm[min2]}, Время доставки: ${arrTime[min2]}`;
+obj_3[arrGoods[max1]] = `Цена:${arrPrice[max1]}, Производитель:${arrFirm[max1]}, Время доставки: ${arrTime[max1]}`;
+obj_4[arrGoods[max2]] = `Цена:${arrPrice[max2]}, Производитель: ${arrFirm[max2]}, Время доставки: ${arrTime[max2]}`;
+
 console.log(obj_1);
 console.log(obj_2);
 console.log(obj_3);
